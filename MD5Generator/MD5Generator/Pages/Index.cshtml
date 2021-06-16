@@ -1,0 +1,26 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div>
+    <h1 class="display-4 text-center">MD5 Generator</h1>
+
+    <form method="post" class="m-2 p-3 bg-light">
+        <div class="form-group">
+            <label for="input">Input:</label>
+            <input class="form-control" type="textarea" name="input" value="@Model.Input" />
+        </div>
+        @if (Request.Method.ToUpper() == "POST")
+        {
+            <div class="form-group">
+                <label for="output">Output:</label>
+                <input class="form-control" type="textarea" name="output" value="@Model.Output" disabled />
+            </div>
+        }
+        <div class="form-group">
+            <input class="btn btn-danger" type="submit" value="Generate" />
+        </div>
+    </form>
+</div>
